@@ -37,5 +37,10 @@ const requestHandler = (req, res) => {
 
 }
 
-module.exports = requestHandler
+// module.exports.handler = requestHandler
+// module.exports.someText = "Test module.exports"
 
+module.exports = {
+    handler: requestHandler,
+    someText: 'Test module.export'
+}
