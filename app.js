@@ -1,18 +1,18 @@
 const http = require('http')
-
 const express = require('express')
-
 const app = express()
+const PORT = 3000
 
-app.use((res, req, next) => {
-    console.log("In the middleware here")
-    next() // Faz seguir para o próximo objeto de solicitação ser executado
-})
-
-app.use((res, req, next) => {
+app.use('/product-page', (req, res, next) => {
     console.log("In another middleware here")
+    res.send('<h1>The product page</h1>')
 })
 
-const server = http.createServer(app)
+app.use('/', (req, res, next) => {
+    console.log("In another middleware here")
+    res.send('<h1>Hello guys</h1>')
+})
 
-server.listen(3000)
+ //const server = http.createServer(app)
+ //server.listen(3000)
+ app.listen(PORT)
