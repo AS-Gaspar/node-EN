@@ -1,16 +1,20 @@
 const http = require('http')
+const bodyParser = require('body-parser')
 const express = require('express')
 const app = express()
+
+const shopRoutes = require('./routes/shop')
+const adminRoutes = require('./routes/admin')
+
 const PORT = 3000
 
-app.use('/product-page', (req, res, next) => {
-    console.log("In another middleware here")
-    res.send('<h1>The product page</h1>')
-})
+app.use(bodyParser.urlencoded({extended: false}))
 
-app.use('/', (req, res, next) => {
-    console.log("In another middleware here")
-    res.send('<h1>Hello guys</h1>')
+app.use(shopRoutes)
+app.use('/admin', adminRoutes)
+
+app.use((req, res, next) => {
+    res.status(404).send('<h1>Page not found!</h1>')
 })
 
  //const server = http.createServer(app)
