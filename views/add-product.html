@@ -3,23 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Product</title>
+    <link rel="stylesheet" href="/CSS/main.css">
+    <link rel="stylesheet" href="/CSS/add-product.css">
+    <title>Add Product</title> 
 </head>
 <body> 
-    <header>
-        <nav>
+    <header class="header">
+        <nav class="nav">
             <ul>
-                <li><a href="/admin">Shop</a></li>
-                <li><a href="/admin/add-product">Add Product</a></li>
+                <li class="link"><a class="link" href="/">Shop</a></li>
+                <li class="link"><a class="link" href="/admin/add-product">Add Product</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <h1>Add New Product</h1>
-        <form action="/" method="POST">
-            <input type="text" name="title" placeholder="Product Title" required>
+        <form class="form" action="/admin/add-product" method="POST">
+            <label for="title"></label>   
+            <input type="text" name="title" placeholder="Product">
             <button type="submit">Add Product</button>
+        </form>
     </main>
 </body>
-</html>
+</html>  
