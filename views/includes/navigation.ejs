@@ -1,8 +1,9 @@
-<header class="header">
-    <nav class="nav">
-        <ul>
-            <li class="link"><a class="link <%= path === '/' ? 'active' : '' %>" href="/">Shop</a></li>
-            <li class="link"><a class="link <%= path === '/' ? 'active' : '' %>" href="/admin/add-product">Add Product</a></li>
+<header class="bg-blue-600 text-white">
+    <nav class="container mx-auto p-4 flex justify-between items-center">
+         <h1 class="text-lg font-semibold">Loja</h1>
+        <ul class="flex space-x-4">
+            <li class="link"><a href="/" class="<%= path === '/' ? 'underline' : '' %> hover:underline">Shop</a></li>
+            <li class="link"> <a href="/admin/add-product" class="<%= path === '/admin/add-product' ? 'underline' : '' %> hover:underline">Add Product</a></li>
         </ul>
     </nav>
 </header>

@@ -1,13 +1,26 @@
 <%- include("includes/head.ejs") %>
 </head>
-<body>
-    <%- include("includes/navigation.ejs") %>
-    <main>
-        <% if (prods.length > 0) { %>
-        <h1>My products</h1>
-        <p>List of all products</p>
-        <% } else { %>
-            <h1>No Products Found!</h1>
-        <% } %>
-    </main>
+<body class="bg-gray-50 text-gray-800">
+<%- include("includes/navigation.ejs") %>
+<main class="container mx-auto p-6">
+    <% if (prods.length > 0) { %>
+        <h1 class="text-3xl font-bold mb-4">Meus Produtos</h1>
+        <p class="mb-6 text-gray-600">Lista de produtos disponíveis:</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <% prods.forEach(product => { %>
+            <article class="bg-white p-4 shadow rounded">
+                <header>
+                    <h2 class="text-xl font-semibold mb-2"><%= product.title %></h2>
+                </header>
+                <img src="./images/book.jpeg" alt="Book" class="w-full h-48 object-cover mb-4 rounded">
+                <div class="flex justify-end">
+                    <button class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">Detalhes</button>
+                </div>
+            </article>
+            <% }); %>
+        </div>
+    <% } else { %>
+        <h1 class="text-2xl text-center mt-10">Nenhum Produto Encontrado!</h1>
+    <% } %>
+</main>
 <%- include("includes/end.ejs") %>
