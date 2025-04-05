@@ -9,14 +9,14 @@ app.set('views', './views')
 
 const adminRoutes = require('./routes/admin')
 const shopRoutes = require('./routes/shop')
-const errorRoutes = require('./routes/404')
+const errorRoutes = require('./controllers/404')
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/admin', adminRoutes)
 app.use(shopRoutes)
-app.use(errorRoutes)
+app.use(errorRoutes.errorPage)
 
 app.listen(PORT, () => {
     console.log(`Server listen on ${PORT}`)
