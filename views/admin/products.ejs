@@ -1,0 +1,35 @@
+<%- include("../includes/head.ejs") %>
+</head>
+<body class="bg-gray-50 text-gray-800">
+<%- include("../includes/navigation.ejs") %>
+<main class="container mx-auto p-6">
+    <% if (prods.length > 0) { %>
+        <h1 class="text-3xl font-bold mb-4">Meus Produtos</h1>
+        <p class="mb-6 text-gray-600">Lista de produtos disponíveis:</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <% prods.forEach(product => { %>
+            <article class="bg-white p-4 shadow rounded">
+                <header>
+                    <h2 class="text-xl font-semibold mb-2"><%= product.title %></h2>
+                </header>
+                <div>
+                    <img src="<%= product.imageUrl %>" 
+                    alt="<%= product.title %>" 
+                    class="w-full h-48 object-cover mb-4 rounded">
+                </div>
+                <div>
+                    <h2 class="text-xl font-semibold mb-2">R$<%= product.price %></h2>
+                    <p class="mb-6 text-black-600"><%= product.description %></p>
+                </div>
+                <div class="flex justify-end gap-6">
+                    <button class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">Edit</button>
+                    <button class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">Delete</button>
+                </div>
+            </article>
+            <% }); %>
+        </div>
+    <% } else { %>
+        <h1 class="text-2xl text-center mt-10">Nenhum Produto Encontrado!</h1>
+    <% } %>
+</main>
+<%- include("../includes/end.ejs") %>

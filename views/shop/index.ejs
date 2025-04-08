@@ -12,7 +12,15 @@
                 <header>
                     <h2 class="text-xl font-semibold mb-2"><%= product.title %></h2>
                 </header>
-                <img src="./images/book.jpeg" alt="Book" class="w-full h-48 object-cover mb-4 rounded">
+                <div>
+                    <img src="<%= product.imageUrl %>" 
+                    alt="<%= product.title %>" 
+                    class="w-full h-48 object-cover mb-4 rounded">
+                </div>
+                <div>
+                    <h2 class="text-xl font-semibold mb-2"><%= product.price %></h2>
+                    <p class="mb-6 text-black-600"><%= product.description %></p>
+                </div>
                 <div class="flex justify-end">
                     <button class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">Detalhes</button>
                 </div>

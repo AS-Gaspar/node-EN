@@ -23,7 +23,14 @@ exports.getIndex = (req, res) => {
 exports.getCart = (req, res) => {
     res.render('shop/cart', {
         path: '/cart',
-        pageTitle: ' Your Cart'
+        pageTitle: 'Your Cart'
+    })
+}
+
+exports.getOrders = (req, res) => {
+    res.render('shop/orders', {
+        path: '/orders',
+        pageTitle: 'Orders'
     })
 }
 
