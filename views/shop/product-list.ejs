@@ -26,7 +26,8 @@
                                         <%= product.description %>
                                     </p>
                                 </div>
-                                <div class="flex justify-end">
+                                <div class="flex justify-end gap-6">
+                                    <a href="/products/<%= product.id %>" class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">Details</a>
                                     <form action="/add-to-cart" method="post">
                                         <button class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">Add to cart</button>
                                     </form>
