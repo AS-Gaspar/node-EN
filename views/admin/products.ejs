@@ -22,8 +22,8 @@
                     <p class="mb-6 text-black-600"><%= product.description %></p>
                 </div>
                 <div class="flex justify-end gap-6">
-                    <button class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">Edit</button>
-                    <button class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">Delete</button>
+                    <a href="admin/edit-product/<%= product.id %>?edit=true" class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">Edit</a>
+                    <button type="submit" class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">Delete</button>
                 </div>
             </article>
             <% }); %>
