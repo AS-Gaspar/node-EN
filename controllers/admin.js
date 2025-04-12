@@ -37,6 +37,23 @@ exports.getEditProduct = (req, res) => {
     })
 }
 
+exports.postEditProduct = (req, res) => {
+    const prodId = req.body.productId 
+    const updateTitle = req.body.title
+    const updateImageUrl = req.body.imageUrl
+    const updateDescription = req.body.description
+    const updatePrice = req.body.price
+    const updateProduct = new Product(
+        prodId,
+        updateTitle,
+        updateImageUrl,
+        updateDescription,
+        updatePrice
+    )
+    updateProduct.save()
+    res.redirect('/admin/products')
+}
+
 exports.postAddProduct = (req, res) => {
     const title = req.body.title
     const imageURL = req.body.imageUrl

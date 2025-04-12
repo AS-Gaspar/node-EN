@@ -29,16 +29,18 @@ module.exports = class Product {
     save() {
         getProductsFromFile(products => {
             if (this.id) {
-                const existingProductIndex = products.findIndex(prods => prods.id === this.id)
+                const existingProductIndex = products.findIndex(
+                    prod => prod.id === this.id
+                )
                 const updatedProducts = [...products]
                 updatedProducts[existingProductIndex] = this
-                fs.writeFile(pathFile, JSON.stringify(updatedProducts), (err) => {
+                fs.writeFile(pathFile, JSON.stringify(updatedProducts), err => {
                     console.log(err)
                 })
             } else {
                 this.id = Math.random().toString()
                 products.push(this)
-                fs.writeFile(pathFile, JSON.stringify(products), (err) => {
+                fs.writeFile(pathFile, JSON.stringify(products), err => {
                     console.log(err)
                 })
             }
