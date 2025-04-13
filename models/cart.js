@@ -8,6 +8,7 @@ const pathFile = path.join(
 )
 
 module.exports = class Cart {
+
     static addProduct(id, productPrice) {
         // Fetch the previous cart
         fs.readFile(pathFile, (err, fileContent) => {
@@ -37,20 +38,36 @@ module.exports = class Cart {
             })
         })
     }
+
     static deleteProduct(id, productPrice) {
         fs.readFile(pathFile, (err, fileContent) => {
             if (err) {
                 return
             }
             const updatedCart = { ...JSON.parse(fileContent) }
-            const product = updatedCart.products.findIndex(prod => prod.id === id)
+            const product = updatedCart.products.find(prod => prod.id === id)
+            if (!product) {
+                return
+            }
             const productQty = product.qty
-            const updatedCart.products = updatedCart.products.filter(prods => prods.id !== id)
+            updatedCart.products = updatedCart.products.filter(prods => prods.id !== id)
             updatedCart.totalPrice = updatedCart.totalPrice - productPrice * productQty
 
             fs.writeFile(pathFile, JSON.stringify(updatedCart), err => {
                 console.log(err)
             })
+        })
+    }
+
+    static getCart(callback) {
+        fs.readFile(pathFile, (err, fileContent) => {
+            const cart = JSON.parse(fileContent)
+            if (err) {
+                callback(null)
+            } else {
+                callback(cart)
+            }
+
         })
     }
 }
