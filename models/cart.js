@@ -8,10 +8,6 @@ const pathFile = path.join(
 )
 
 module.exports = class Cart {
-<<<<<<< HEAD
-=======
-
->>>>>>> 6361bd53d2eddcdf07ab315ace4af66f9641dd48
     static addProduct(id, productPrice) {
         // Fetch the previous cart
         fs.readFile(pathFile, (err, fileContent) => {
@@ -41,28 +37,18 @@ module.exports = class Cart {
             })
         })
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> 6361bd53d2eddcdf07ab315ace4af66f9641dd48
     static deleteProduct(id, productPrice) {
         fs.readFile(pathFile, (err, fileContent) => {
             if (err) {
                 return
             }
             const updatedCart = { ...JSON.parse(fileContent) }
-<<<<<<< HEAD
-            const product = updatedCart.products.findIndex(prod => prod.id === id)
-            const productQty = product.qty
-            const updatedCart.products = updatedCart.products.filter(prods => prods.id !== id)
-=======
             const product = updatedCart.products.find(prod => prod.id === id)
             if (!product) {
                 return
             }
             const productQty = product.qty
             updatedCart.products = updatedCart.products.filter(prods => prods.id !== id)
->>>>>>> 6361bd53d2eddcdf07ab315ace4af66f9641dd48
             updatedCart.totalPrice = updatedCart.totalPrice - productPrice * productQty
 
             fs.writeFile(pathFile, JSON.stringify(updatedCart), err => {
@@ -70,8 +56,6 @@ module.exports = class Cart {
             })
         })
     }
-<<<<<<< HEAD
-=======
 
     static getCart(callback) {
         fs.readFile(pathFile, (err, fileContent) => {
@@ -84,6 +68,5 @@ module.exports = class Cart {
 
         })
     }
->>>>>>> 6361bd53d2eddcdf07ab315ace4af66f9641dd48
 }
 
