@@ -14,7 +14,11 @@ exports.getProducts = (req, res) => {
 exports.getProduct = (req, res) => {
     const prodId = req.params.productId
     Product.findById(prodId, product => {
+<<<<<<< HEAD
         res.render('shop/product-detail', { 
+=======
+        res.render('shop/product-detail', {
+>>>>>>> 6361bd53d2eddcdf07ab315ace4af66f9641dd48
             product: product,
             pageTitle: product.title,
             path: '/products'
@@ -33,9 +37,27 @@ exports.getIndex = (req, res) => {
 }
 
 exports.getCart = (req, res) => {
+<<<<<<< HEAD
     res.render('shop/cart', {
         path: '/cart',
         pageTitle: 'Your Cart'
+=======
+    Cart.getCart(cart => {
+        Product.fetchAll(products => {
+            const cartProducts = []
+            for (product of products) {
+                const cartProductData = cart.products.find(prod => prod.id === product.id)
+                if (cartProductData) {
+                    cartProducts.push({ productData: product, qty: cartProductData.qty })
+                }
+            }
+            res.render('shop/cart', {
+                path: '/cart',
+                pageTitle: 'Your Cart',
+                products: cartProducts
+            })
+        })
+>>>>>>> 6361bd53d2eddcdf07ab315ace4af66f9641dd48
     })
 }
 
@@ -47,6 +69,17 @@ exports.postCart = (req, res) => {
     res.redirect('/cart')
 }
 
+<<<<<<< HEAD
+=======
+exports.postCartDeleteProduct = (req, res) => {
+    const prodId = req.body.productId
+    Product.findById(prodId, product => {
+        Cart.deleteProduct(prodId, product.price)
+        res.redirect('./cart')
+    })
+}
+
+>>>>>>> 6361bd53d2eddcdf07ab315ace4af66f9641dd48
 exports.getOrders = (req, res) => {
     res.render('shop/orders', {
         path: '/orders',

@@ -1,6 +1,9 @@
 const fs = require('fs')
 const path = require('path')
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6361bd53d2eddcdf07ab315ace4af66f9641dd48
 const Cart = require('./cart')
 
 const pathFile = path.join(
