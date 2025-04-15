@@ -1,18 +1,32 @@
 {
-    "sqltools.connections": [
-        {
-            "mysqlOptions": {
-                "authProtocol": "default",
-                "enableSsl": "Disabled"
-            },
-            "previewLimit": 50,
-            "server": "172.20.199.178",
-            "port": 3306,
-            "driver": "MariaDB",
-            "name": "MariaDB on WSL",
-            "username": "alexandre",
-            "password": "Alexa10!",
-            "database": "node"
-        }
-    ]
+  "sqltools.connections": [
+    {
+      "mysqlOptions": {
+        "authProtocol": "default",
+        "enableSsl": "Disabled"
+      },
+      "previewLimit": 50,
+      "server": "172.20.199.178",
+      "port": 3306,
+      "driver": "MariaDB",
+      "name": "MariaDB on WSL",
+      "username": "alexandre",
+      "password": "Alexa10!",
+      "database": "node"
+    },
+    {
+      "mysqlOptions": {
+        "authProtocol": "default",
+        "enableSsl": "Disabled"
+      },
+      "previewLimit": 50,
+      "server": "172.23.115.144",
+      "port": 3306,
+      "driver": "MariaDB",
+      "name": "MariaDB on WSL NOTE",
+      "database": "node",
+      "username": "alexandre",
+      "password": "Alexa10!"
+    }
+  ]
 }
