@@ -6,3 +6,5 @@ const pool = mariadb.createPool({
     database: "node",
     password: "Alexa10!"
 })
+
+module.exports = pool.promise()
