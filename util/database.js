@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize')
 const sequelize = new Sequelize('node', 'alexandre', 'Alexa10!', {
-    dialect: 'mariadb',
+    dialect: 'mysql',
     host: 'localhost' 
 })
 
