@@ -62,14 +62,19 @@ exports.postDeleteProduct = (req, res) => {
 
 exports.postAddProduct = (req, res) => {
   const title = req.body.title
-  const imageURL = req.body.imageUrl
+  const imageUrl = req.body.imageUrl
   const description = req.body.description
   const price = req.body.price
-  const product = new Product(null, title, imageURL, description, price)
-  product
-    .save()
-    .then(() => {
-      res.redirect("/")
-    })
-    .catch((err) => console.log(err))
+  Product.create({
+    title: title,
+    price: price,
+    imageUrl: imageUrl,
+    description: description
+  })
+  .then(result => {
+    console.log(result)
+  })
+  .catch(err => {[
+    console.log(err)
+  ]})
 }
